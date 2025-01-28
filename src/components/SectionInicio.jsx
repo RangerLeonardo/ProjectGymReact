@@ -1,5 +1,8 @@
-export const SectionInicio = ({props}) =>{
-    return <section>
-        <h1>Bienvenido</h1>
+import ItemsList from "./Items/ItemsList"
+export const SectionInicio = ({userName, userLastname}) =>{
+    return <section className="div_principal_contenido">
+        <h1>¡Hola {userName} {userLastname}!</h1>
+        <ItemsList className="items_list"/>
+
     </section>
 }
