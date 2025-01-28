@@ -1,10 +1,10 @@
-export const Header = ({ userName, userLastname }) => {
+export const Header = () => {
     return (
         <header>
             <section className="navegacion_principal">
                 <div className="navegacion_logo navegacion_div">
                     <a href="#inicio">
-                    <img id="logo" src="../src/assets/Logo.png" alt="logo" />
+                    <img id="logo" src="/public/Logo.png" alt="logo" />
                     </a>
                 </div>
                 <div className="navegacion_div">

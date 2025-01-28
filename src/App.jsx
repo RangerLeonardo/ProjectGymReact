@@ -11,8 +11,8 @@ function App() {
   }
   return (
     <div>
-      <Header userName = {user.name} userLastname = {user.lastname}/>
-      <SectionInicio/>
+      <Header />
+      <SectionInicio userName = {user.name} userLastname = {user.lastname} />
       <Footer/>
     </div>
   )

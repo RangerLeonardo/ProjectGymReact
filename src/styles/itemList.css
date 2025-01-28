@@ -1,0 +1,38 @@
+.li_img_product {
+    max-width: 20rem;
+    transition: .2s all linear;
+}
+
+.store-container-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.li_img_product:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .3s all linear;
+}
+
+.store-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Ajusta el espacio entre los productos según sea necesario */
+}
+
+.ul_itemslist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: contents; /* Para que los elementos li se comporten como elementos grid */
+}
+
+.li_itemslist {
+    background-color: #f9f9f9; /* Color de fondo para los productos */
+    padding: 16px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde */
+    text-align: center; /* Centrar el contenido */
+}

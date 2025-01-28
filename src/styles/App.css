@@ -26,6 +26,11 @@ a{
   text-decoration: none;
 }
 
+h1{
+  text-align: center;
+  font-size: 5rem;
+}
+
 /* Header */
 
 .navegacion_principal{
@@ -68,7 +73,18 @@ a{
 
 /* Header */
 
+/* Section principal*/
+
+.div_principal_contenido{
+  height: 80vh;
+}
+
 /* Footer */
+footer{
+  height: 1rem;
+  width: auto;
+  background-color: red;
+}
 .div_footer{
   display: flex;
   color: var(--blanco-primario);
