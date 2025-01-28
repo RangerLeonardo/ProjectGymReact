@@ -1,21 +1,24 @@
-import React from 'react'
-import { Header } from './components/Header.JSX'
-import { Footer } from './components/Footer'
-import { SectionInicio } from './components/SectionInicio'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import SectionInicio from './components/SectionInicio';
 
 function App() {
   const user = {
     name: "Brandon",
     lastname: "Adata"
+  };
 
-  }
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <SectionInicio userName = {user.name} userLastname = {user.lastname} />
-      <Footer/>
-    </div>
-  )
+      <Routes>
+        <Route path="/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
