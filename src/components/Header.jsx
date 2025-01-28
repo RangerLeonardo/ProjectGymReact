@@ -1,4 +1,4 @@
-export const Header = () => {
+const Header = () => {
     return (
         <header>
             <section className="navegacion_principal">
@@ -38,3 +38,5 @@ export const Header = () => {
         </header>
     );
 }
+
+export default Header
