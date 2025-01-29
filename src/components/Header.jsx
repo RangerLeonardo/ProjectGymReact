@@ -4,7 +4,7 @@ const Header = () => {
             <section className="navegacion_principal">
                 <div className="navegacion_logo navegacion_div">
                     <a href="#inicio">
-                    <img id="logo" src="/public/Logo.png" alt="logo" />
+                    <img id="logo" src="/Logo.png" alt="logo" />
                     </a>
                 </div>
                 <div className="navegacion_div">

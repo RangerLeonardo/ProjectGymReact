@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom';
+
 
 const db = [];
 
@@ -48,7 +50,7 @@ const ItemsList = () => {
                                 <h3>{product.name}</h3>
                             </div>
                             <div>
-                                <p><a href="/#">Ver detalles</a></p>
+                                <p><Link to={`/product/detail/${product.id}`}>Ver detalles</Link></p>
                             </div>
                         </li>
                     ))}
