@@ -34,16 +34,44 @@ h1{
 /* Header */
 
 .navegacion_principal{
-  display: flex;
-  margin-left: 5rem;
-  margin-top: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 8px;
+  margin: 3rem 5rem;
+  align-items: center;
+}
+
+.navegacion_logo{
+  text-align: right;
+}
+
+.div_column_navegacion {
+  text-align: center;
+  grid-column: 2 / 6;
+}
+
+.div_column_shopping_cart {
+  justify-items: left;
+  grid-column-start: 6;
 }
 
 .navegacion_div{
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
   margin: 2rem;
+  display: inline;
+  width: auto;
+  height: 2rem;
+}
+
+.navegacion_a{
+  width: 2rem;
+  margin-top: 2rem;
+}
+
+.navegacion_p{
+  width: 2rem;
+  height: 2rem;
+  margin-top: 2rem;
 }
 
 .navegacion_p{
@@ -76,7 +104,7 @@ h1{
 /* Section principal*/
 
 .div_principal_contenido{
-  height: 80vh;
+  height: auto;
 }
 
 /* Footer */

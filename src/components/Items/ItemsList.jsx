@@ -1,35 +1,14 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
-
-
-const db = [];
-
-for (let index = 1; index < 9; index++) {
-    const id = index;
-    const name = 'Product ' + index;
-    const img = "/src/assets/img/PNG/proteina1.png";
-    db.push({id, name, img})
-    
-}
-const getDB = () =>{
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(db)
-        }, 2000)
-        if(db.length === 0){
-            reject('No products to show')
-        }
-    })
-}
+import { getDB } from '../db';
 
 const ItemsList = () => {
-
-    
+   
     const [products, setProducts] = useState([]);
 
     const giveProducts = async () => {
-        const database = await getDB()
+        const database = await getDB();
         setProducts(database);
     }
 

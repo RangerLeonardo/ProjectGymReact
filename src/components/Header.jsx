@@ -7,27 +7,37 @@ const Header = () => {
                     <img id="logo" src="/Logo.png" alt="logo" />
                     </a>
                 </div>
-                <div className="navegacion_div">
-                    <a href="#inicio">
-                        <p className="navegacion_p" id="inicio">Inicio</p>
-                    </a>
+
+                {/* This one start the union */}
+                <div className="div_column_navegacion">
+                    <div className="navegacion_div">
+                        <a className="navegacion_a" href="#todo">
+                            <p className="navegacion_p" id="inicio">Todo</p>
+                        </a>
+                    </div>
+                    <div className="navegacion_div">
+                        <a className="navegacion_a" href="#proteina">
+                            <p className="navegacion_p" id="sobre_mi">Proteínas</p>
+                        </a>
+                    </div>
+                    <div className="navegacion_div">
+                        <a className="navegacion_a" href="#creatina">
+                            <p className="navegacion_p" id="proyectos">Creatinas</p>
+                        </a>
+                    </div>
+                    <div className="navegacion_div">
+                        <a className="navegacion_a" href="#preentreno">
+                            <p className="navegacion_p">Pre entreno</p>
+                        </a>
+                    </div>
+                    <div className="navegacion_div">
+                        <a className="navegacion_a" href="#suplementos">
+                            <p className="navegacion_p">Suplementos y otros</p>
+                        </a>
+                    </div>
                 </div>
-                <div className="navegacion_div">
-                    <a href="#productos">
-                        <p className="navegacion_p" id="sobre_mi">Productos</p>
-                    </a>
-                </div>
-                <div className="navegacion_div">
-                    <a href="#promociones">
-                        <p className="navegacion_p" id="proyectos">Promociones</p>
-                    </a>
-                </div>
-                <div className="navegacion_div">
-                    <a href="#planesDeEntrenamiento">
-                        <p className="navegacion_p">Planes de entrenamiento</p>
-                    </a>
-                </div>
-                <div className="navegacion_div">
+                {/* This one end the union */}
+                <div className="navegacion_div div_column_shopping_cart">
                     <a href="#carritoDeCompras">
                         <p className="navegacion_p">
                         <i className="fa-solid fa-cart-shopping"></i>
