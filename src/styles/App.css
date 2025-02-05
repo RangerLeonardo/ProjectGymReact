@@ -10,16 +10,24 @@ html {
   --negro-primario: #1e1e1e;
   --negro-secundario: #222222;
   --blanco-primario: #FFF;
+  --sombra-primaria: #9a9a9a;
 }
 
-
 body{
-  background-color: var(--blanco-primario);
+  background-color: #f6f6f6;
   color: var(--negro-primario);
   font-family: "Inter" , sans-serif;
   font-style: normal;
   font-variation-settings:"slnt" 0;
   margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
 }
 
 a{
@@ -31,116 +39,22 @@ h1{
   font-size: 5rem;
 }
 
-/* Header */
-
-.navegacion_principal{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  gap: 8px;
-  margin: 3rem 5rem;
-  align-items: center;
+h2{
+  font-size: 3.5rem;
 }
 
-.navegacion_logo{
-  text-align: right;
+h3{
+  font-size: 3rem;
+  margin: 1rem;
 }
 
-.div_column_navegacion {
-  text-align: center;
-  grid-column: 2 / 6;
+h4{
+  font-size: 2rem;
+  margin: 1rem;
 }
-
-.div_column_shopping_cart {
-  justify-items: left;
-  grid-column-start: 6;
-}
-
-.navegacion_div{
-  margin: 2rem;
-  display: inline;
-  width: auto;
-  height: 2rem;
-}
-
-.navegacion_a{
-  width: 2rem;
-  margin-top: 2rem;
-}
-
-.navegacion_p{
-  width: 2rem;
-  height: 2rem;
-  margin-top: 2rem;
-}
-
-.navegacion_p{
-  font-size: 2.5rem;
-  display: inline;
-  transition: color 0.5s ease-in-out;
-  color: var(--negro-primario);
-}
-
-.navegacion_div p:hover{
-  color:var(--naranja-primario);
-  transition: color 0.3s ease;
-}
-
-#logo{
-  max-width: 5rem;
-  margin-top: -.5rem;  
-  transition: transform 0.2s;
-  transform: scale(1.0);
-}
-
-#logo:hover{
-  cursor: pointer;
-  transition: transform 0.2s;
-  transform: scale(1.1);
-}
-
-/* Header */
 
 /* Section principal*/
 
 .div_principal_contenido{
   height: auto;
 }
-
-/* Footer */
-footer{
-  height: 1rem;
-  width: auto;
-  background-color: red;
-}
-.div_footer{
-  display: flex;
-  color: var(--blanco-primario);
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--negro-primario);
-}
-
-.img_footer{
-  max-width: 5rem;
-  margin-right: 2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  transform: scale(1.0);
-  transition: transform 0.5s;
-}
-
-.img_footer:hover{
-  cursor: pointer;
-  transform: scale(1.1);
-  transition: transform 0.3s;
-}
-
-.div_parrafo{
-  margin-left: 42%;
-  font-weight: bold;
-  font-size: 2rem;
-}
-
-/* Footer */
-
