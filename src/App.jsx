@@ -16,8 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
-        <Route path="/product/detail" element={<ItemDetailProduct />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="/product/detail/:id/" element={<ItemDetailProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
