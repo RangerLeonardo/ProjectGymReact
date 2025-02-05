@@ -84,11 +84,6 @@
     font-size: 20px;
 }
 
-.div_add_to_cart{
-    /* border: 2px solid crimson; */
-
-}
-
 .btn_add_to_cart{
     padding: 1rem;
     background-color: var(--naranja-primario);
