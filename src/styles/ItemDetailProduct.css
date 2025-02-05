@@ -4,6 +4,8 @@
 }
 .div_img_container img{
     max-height: 45rem;
+    box-shadow: 0.1rem 0.1rem 1.4rem -0.1rem var(--sombra-primaria);
+    box-shadow: 1px s;
 }
 
 .div_container_detail{
@@ -94,4 +96,13 @@
     font-weight: bold;
     font-size: 1.3rem;
     border-radius: .3rem;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.btn_add_to_cart:hover{
+    transition: all .2s linear;
+    background-color: var(--negro-primario);
+    color: var(--blanco-primario);
+    box-shadow: 0 1rem 1rem -0.1rem var(--sombra-primaria);
 }
