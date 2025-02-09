@@ -1,13 +1,11 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getDB } from '../db';
 import "../../styles/itemList.css";
 
 const ItemsList = () => {
     const [products, setProducts] = useState([]);
-    const navigate = useNavigate();
-
     const giveProducts = async () => {
         const database = await getDB();
         setProducts(database);
@@ -34,7 +32,7 @@ const ItemsList = () => {
                                 <h4>${product.precio}</h4>
                             </div>
                             <div className='div_details_and_cart'>
-                                <Link to={`/product/detail/${product.id}`} state={ product }>
+                                <Link to={`/ProjectGymReact/product/detail/${product.id}`} state={ product }>
                                     <div className='div_details'>
                                         <p className='p_details'>Ver detalle</p>
                                     </div>

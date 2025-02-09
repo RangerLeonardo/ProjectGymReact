@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Header.css";
 const Header = () => {
     return (
@@ -5,35 +6,37 @@ const Header = () => {
             <div className="div_header_navegacion_principal">
                 <section className="navegacion_principal">
                     <div className="navegacion_logo navegacion_div">
-                        <a href="#inicio">
-                        <img id="logo" src="/Logo.png" alt="logo" />
-                        </a>
+                        <Link to={"/ProjectGymReact/"}> 
+                                <a href="#inicio">
+                                <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
+                                </a>
+                        </Link>
                     </div>
 
                     {/* This one start the union */}
                     <div className="div_column_navegacion">
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="#todo">
+                            <Link className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p" id="inicio">Todo</p>
-                            </a>
+                            </Link>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="#proteina">
+                            <a className="navegacion_a" href="">
                                 <p className="navegacion_p" id="sobre_mi">Proteínas</p>
                             </a>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="#creatina">
+                            <a className="navegacion_a" href="">
                                 <p className="navegacion_p" id="proyectos">Creatinas</p>
                             </a>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="#preentreno">
+                            <a className="navegacion_a" href="">
                                 <p className="navegacion_p">Pre entreno</p>
                             </a>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="#suplementos">
+                            <a className="navegacion_a" href="">
                                 <p id="navegacion_p_last_child" className="navegacion_p">Suplementos y otros</p>
                             </a>
                         </div>
