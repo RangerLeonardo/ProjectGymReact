@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartShoppingContext } from '../ContextAPI/ContextCartShopping';
 import QuantityControl from './QuantityControl';
 
 const ProductDetail = ({ product, quantity, increment, decrement }) => {
+
+    const { getCartShopping } = useContext(CartShoppingContext);
+
+    const handleAddToCart = () => {
+        getCartShopping(product);
+        console.log('Add to cart');
+    };
+
     return (
         <section className='section_detail_product'>
             <div className='div_container_detail'>
@@ -29,7 +38,7 @@ const ProductDetail = ({ product, quantity, increment, decrement }) => {
                         />
                     </div>
                     <div className='div_add_to_cart'>
-                        <button className='btn_add_to_cart'>Agregar al carrito</button>
+                        <button className='btn_add_to_cart' onClick={handleAddToCart}>Agregar al carrito</button>
                     </div>
                 </div>
             </div>

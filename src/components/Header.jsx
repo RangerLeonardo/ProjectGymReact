@@ -7,9 +7,7 @@ const Header = () => {
                 <section className="navegacion_principal">
                     <div className="navegacion_logo navegacion_div">
                         <Link to={"/ProjectGymReact/"}> 
-                                <a href="#inicio">
-                                <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
-                                </a>
+                            <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
                         </Link>
                     </div>
 
