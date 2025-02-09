@@ -15,8 +15,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
-        <Route path="/product/detail/:id/" element={<ItemDetailProduct />} />
+        <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
+        <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>

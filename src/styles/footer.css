@@ -8,17 +8,22 @@ footer{
 }
 .div_footer{
     display: flex;
-    color: var(--blanco-primario);
     justify-content: space-between;
     align-items: center;
+    
+}
+
+.div_principal_footer{
+    display: grid;
+    color: var(--blanco-primario);
     background-color: var(--negro-primario);
+    grid-template-columns: 25% 50% 25%;
+    justify-content: center;
+    justify-items: center;
 }
 
 .img_footer{
     max-width: 5rem;
-    margin-right: 2rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
     transform: scale(1.0);
     transition: transform 0.5s;
 }
@@ -29,10 +34,29 @@ footer{
     transition: transform 0.3s;
 }
 
-.div_parrafo{
-    margin-left: 42%;
+.div_footer_parrafo{
     font-weight: bold;
     font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.div_footer_parrafo p{
+    margin: 0;
+}
+
+.div_img_footer{
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.div_img_footer img{
+    margin: 0 1.2rem;
 }
 
 /* Footer */
