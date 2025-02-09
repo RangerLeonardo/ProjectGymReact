@@ -7,8 +7,9 @@ const ProductDetail = ({ product, quantity, increment, decrement }) => {
     const { getCartShopping } = useContext(CartShoppingContext);
 
     const handleAddToCart = () => {
-        getCartShopping(product);
-        console.log('Add to cart');
+        console.log(quantity);
+        const itemsToAdd = Array(quantity).fill(product);
+        getCartShopping(itemsToAdd);
     };
 
     return (

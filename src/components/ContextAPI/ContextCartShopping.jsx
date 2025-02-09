@@ -5,8 +5,8 @@ export const CartShoppingContext = createContext();
 export const ContextCartShopping = ({ children }) => {
     const [cartShopping, setCartShopping] = useState([]);
 
-    const getCartShopping = (item) => {
-        setCartShopping([...cartShopping, item]);
+    const getCartShopping = (items) => {
+        setCartShopping((prevCart) => [...prevCart, ...items]);
     };
 
     return (
@@ -16,4 +16,4 @@ export const ContextCartShopping = ({ children }) => {
     );
 };
 
-export default ContextCartShopping
+export default ContextCartShopping;
