@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SectionInicio from './components/SectionInicio';
 import ItemDetailProduct from './components/Items/ItemDetailProduct';
+import ContextCartShopping from './components/ContextAPI/ContextCartShopping';
 
 function App() {
   const user = {
@@ -12,14 +13,16 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
-        <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <ContextCartShopping>
+      <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
+            <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+    </ContextCartShopping>
   );
 }
 
