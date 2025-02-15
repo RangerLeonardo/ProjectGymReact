@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartShoppingContext } from '../ContextAPI/ContextCartShopping';
+import { CartShoppingContext } from '../ContextAPI/ContextCart/CartShoppingContext';
 import QuantityControl from './QuantityControl';
 
 const ProductDetail = ({ product, quantity, increment, decrement }) => {
@@ -7,9 +7,7 @@ const ProductDetail = ({ product, quantity, increment, decrement }) => {
     const { getCartShopping } = useContext(CartShoppingContext);
 
     const handleAddToCart = () => {
-        console.log(quantity);
-        const itemsToAdd = Array(quantity).fill(product);
-        getCartShopping(itemsToAdd);
+        getCartShopping(product, quantity);
     };
 
     return (

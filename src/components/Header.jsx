@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { CartShoppingContext } from './ContextAPI/ContextCartShopping';
+import { CartShoppingContext } from './ContextAPI/ContextCart/CartShoppingContext';
 import "../styles/Header.css";
 
 const Header = () => {
-    const { cartShopping } = useContext(CartShoppingContext);
+    const { quantityFinal } = useContext(CartShoppingContext);
 
     return (
         <header>
@@ -56,8 +56,8 @@ const Header = () => {
                         <a href="#carritoDeCompras">
                             <p className="navegacion_p">
                             <i className="fa-solid fa-cart-shopping shopping_cart"></i>
-                            {cartShopping.length > 0 && (
-                            <span className="cart_count">{cartShopping.length}</span>
+                            {quantityFinal > 0 && (
+                            <span className="cart_count">{quantityFinal}</span>
                             )}
                             </p>
                         </a>
