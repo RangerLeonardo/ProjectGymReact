@@ -1,5 +1,8 @@
 .li_img_product {
-    max-width: 15rem;
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    aspect-ratio: 3/2;
     transition: .2s all linear;
 }
 
@@ -49,8 +52,15 @@
     text-align: center;
     margin: 1.5rem;
     padding: 1rem;
-    max-height: 35rem;
-    
+    max-height: 40rem;   
+}
+
+.li_itemslist h3{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .li_itemslist img{
