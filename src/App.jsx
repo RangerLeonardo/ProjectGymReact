@@ -5,6 +5,9 @@ import Footer from './components/Footer';
 import SectionInicio from './components/SectionInicio';
 import ItemDetailProduct from './components/Items/ItemDetailProduct';
 import ContextCartShopping from './components/ContextAPI/ContextCart/ContextCartShopping';
+import CartSummary from './components/Checkout/CartSummary';
+import CartCheckout from './components/Checkout/CartCheckout';
+
 
 function App() {
   const user = {
@@ -19,6 +22,9 @@ function App() {
           <Routes>
             <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
             <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
+            <Route path="/ProjectGymReact/CartSummary" element={<CartSummary />} />
+            <Route path="/ProjectGymReact/CartSummary/CartCheckout" element={<CartCheckout />} />
+
           </Routes>
           <Footer />
       </ContextCartShopping>
@@ -26,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

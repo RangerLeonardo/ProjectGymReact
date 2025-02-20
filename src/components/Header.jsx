@@ -53,14 +53,14 @@ const Header = () => {
                         </a>
                     </div>
                     <div className="navegacion_div div_column_shopping_cart">
-                        <a href="#carritoDeCompras">
+                        <Link to={"/ProjectGymReact/CartSummary"}>
                             <p className="navegacion_p">
                             <i className="fa-solid fa-cart-shopping shopping_cart"></i>
                             {quantityFinal > 0 && (
                             <span className="cart_count">{quantityFinal}</span>
                             )}
                             </p>
-                        </a>
+                        </Link>
                     </div>
                 </section>
             </div>

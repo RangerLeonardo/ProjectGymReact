@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const QuantityControl = ({ quantity,setQuantity }) => {
+const QuantityControlWithQuantity = ({ cantidad }) => {
+    const cantidadIsValid = cantidad !== undefined ? cantidad : 1;
+    const [quantity, setQuantity] = useState(cantidadIsValid);
 
     const increment = () => setQuantity(quantity + 1);
     const decrement = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
@@ -14,4 +16,4 @@ const QuantityControl = ({ quantity,setQuantity }) => {
     );
 };
 
-export default QuantityControl;
+export default QuantityControlWithQuantity;
