@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartShoppingContext } from '../ContextAPI/ContextCart/CartShoppingContext';
 import QuantityControl from './QuantityControl';
 
-const ProductDetail = ({ product, quantity, increment, decrement }) => {
+const ProductDetail = ({ product }) => {
+    const [quantity, setQuantity] = useState(1);
 
     const { getCartShopping } = useContext(CartShoppingContext);
 
@@ -31,9 +32,8 @@ const ProductDetail = ({ product, quantity, increment, decrement }) => {
                     </div>
                     <div className='div_detail_principal_container_quantity'>
                         <QuantityControl 
-                            quantity={quantity} 
-                            increment={increment} 
-                            decrement={decrement} 
+                            quantity={quantity}
+                            setQuantity={setQuantity}
                         />
                     </div>
                     <div className='div_add_to_cart'>

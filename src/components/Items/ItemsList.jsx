@@ -1,18 +1,23 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { getDB } from '../db';
 import "../../styles/itemList.css";
+import { getProducts } from '../../firebase';
 
 const ItemsList = () => {
     const [products, setProducts] = useState([]);
-    const giveProducts = async () => {
-        const database = await getDB();
-        setProducts(database);
-    }
 
     useEffect(() => {
-        giveProducts()
+        const fetchProducts = async () => {
+            try {
+                const productsData = await getProducts();
+                setProducts(productsData);
+            } catch (error) {
+                console.error("Error al obtener productos:", error);
+            }
+        };
+
+        fetchProducts();
     }, []);
 
     return (
@@ -29,7 +34,7 @@ const ItemsList = () => {
                                 <h3>{product.name}</h3>
                             </div>
                             <div>
-                                <h4>${product.precio}</h4>
+                                <h4>${product.price}</h4>
                             </div>
                             <div className='div_details_and_cart'>
                                 <Link to={`/ProjectGymReact/product/detail/${product.id}`} state={ product }>

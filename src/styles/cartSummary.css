@@ -1,0 +1,35 @@
+.div_principal_cart_summary{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.div_principal_li_cart_summary{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.div_cart_summary_img img{
+    max-width: 15rem;
+}
+
+.li_cart_summary{
+    border: 1px solid crimson;
+    margin: 1.5rem 0;
+    list-style: none;
+}
+
+.div_title_cart_summary{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.div_cart_summary_btn_eliminar{
+    margin: 1rem;
+}
+
+.div_cart_summary_quantity_control{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
