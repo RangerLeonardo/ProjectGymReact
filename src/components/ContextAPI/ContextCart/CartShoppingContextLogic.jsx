@@ -16,7 +16,7 @@ const updateCartShopping = (cartShopping, product, quantityF) => {
     return updatedCart;
 };
 
-const ContextCartShopping = ({ children }) => {
+const CartShoppingContextLogic = ({ children }) => {
     const [cartShopping, setCartShopping] = useState([]);
     const [quantityFinal, setQuantityFinal] = useState(0);
 
@@ -37,4 +37,4 @@ const ContextCartShopping = ({ children }) => {
     );
 };
 
-export default ContextCartShopping;
+export default CartShoppingContextLogic;

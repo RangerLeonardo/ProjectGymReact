@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, getDocs, collection, doc, writeBatch } from "firebase/firestore";
+import { getFirestore, getDocs, collection, doc, writeBatch, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCctttVWGUc5IBnmkH8U1kLGmSG1z-CpA0",
@@ -11,28 +11,6 @@ const firebaseConfig = {
     appId: "1:908532172304:web:15b22e3cbdd8aa1f00ac95",
     measurementId: "G-L9HTD6TPZJ"
 };
-
-/*const pushProducts = async () =>{
-    const batch = writeBatch(db);
-    const productsRef = collection(db, "products");
-
-    products.forEach(product => {
-        const newDoc = doc(productsRef);
-        batch.set(newDoc, product);
-    });
-
-    try{
-        await batch.commit();
-        console.log("Productos agregados correctamente");
-    }catch(error){
-        console.error("Error al agregar productos", error);
-    }
-}
-
-//esta function fue usada en App.jsx para hacer el push de products, ya está en db así que ya no se requiere
-export default function executePushProducts(){
-    pushProducts();
-}*/
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -83,12 +61,30 @@ export const postUser = async (formData) => {
     }
 };
 
-export async function getUserToLogin (email, password) {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    const users = querySnapshot.docs.map(doc => doc.data());
-    const user = users.find(user => user.email === email && user.password === password);
-    return user;
+export async function getUserToLogin(email, password) {
+    let user = null;
+    try {
+        const q = query(collection(db, "users"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        
+        if (!querySnapshot.empty) {
+        const userDoc = querySnapshot.docs[0];
+        const userData = userDoc.data();
+        
+        if (userData.password === password) {
+            user = userData;
+        } else {
+            console.error("Contraseña incorrecta");
+        }
+        } else {
+            console.error("Usuario no encontrado");
+        }
+    } catch (error) {
+        console.error("Error al obtener usuario", error);
+    }finally{
+        return user;
+    }
 }
 
-const defaultMessage = "Db"
+const defaultMessage = "db"
 export default defaultMessage;
