@@ -7,6 +7,18 @@ const CartSummary = () => {
 
     const {cartShopping, quantityFinal} = useContext(CartShoppingContext);
 
+    function calcTotal() {
+        let sum = 0;
+        const cartShoppingTemp = [...cartShopping];
+
+        cartShoppingTemp.forEach(item => {
+            sum += item.price * item.quantity;
+        });
+
+        return sum;
+    }
+
+    const total = calcTotal();
     return (
         <section>
             {cartShopping.length === 0 ? (
@@ -37,19 +49,16 @@ const CartSummary = () => {
                                                 </div>
 
                                                 <div>
-                                                    <h4>${item.precio}.00</h4>
-                                                </div>
-
-                                                <div className='div_cart_summary_btn_eliminar'>
-                                                    <button onClick={console.log("Eliminando")}>Eliminar</button>
+                                                    <h4>${item.price}.00</h4>
                                                 </div>
 
                                             </div>
 
                                             <div className='div_cart_summary_quantity_control'>
-                                                <QuantityControlWithQuantity 
-                                                cantidad={item.cantidad}
-                                                />
+                                                <QuantityControlWithQuantity cantidad={item.quantity}/>
+                                                <div className='div_cart_summary_btn_eliminar'>
+                                                    <button onClick={console.log("Eliminando")}>Eliminar</button>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -59,9 +68,15 @@ const CartSummary = () => {
                         </div>
 
                         <div className='div_cart_summary_checkout'>
-                            <h3>Total</h3>
-                            <h3>Cantidad</h3>
-                            <h3>Dirección</h3>
+                            <div>
+                                <h3>Total: ${total}.00</h3>
+                            </div>
+                            <div>
+                                <h3>Cantidad: {quantityFinal}</h3>
+                            </div>
+                            <div>
+                                <h3>Dirección</h3>
+                            </div>
                         </div>
                     </div>
                 </div>

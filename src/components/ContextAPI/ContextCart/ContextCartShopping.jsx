@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import CartShoppingContext from './CartShoppingContext';
 
 // Función externa para actualizar el carrito de compras
-const updateCartShopping = (cartShopping, product, quantity) => {
+const updateCartShopping = (cartShopping, product, quantityF) => {
     const updatedCart = [...cartShopping];
     const existingItemIndex = updatedCart.findIndex(cartItem => cartItem.id === product.id);
 
     if (existingItemIndex !== -1) {
-        updatedCart[existingItemIndex].cantidad += quantity;
+        updatedCart[existingItemIndex].quantity += quantityF;
     } else {
-        updatedCart.push({ ...product, cantidad: quantity });
+        product.quantity = quantityF;
+        updatedCart.push({...product});
     }
 
     return updatedCart;

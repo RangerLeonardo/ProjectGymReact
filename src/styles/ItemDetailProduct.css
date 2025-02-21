@@ -3,7 +3,16 @@
     display: grid;
 }
 .div_img_container img{
+    max-height: 44rem;
+}
+
+.div_img_container{
+    max-width: 45rem;
     max-height: 45rem;
+    padding: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0.1rem 0.1rem 1.4rem -0.1rem var(--sombra-primaria);
     box-shadow: 1px s;
 }

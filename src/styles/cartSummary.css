@@ -25,6 +25,7 @@
 
 .div_cart_summary_btn_eliminar{
     margin: 1rem;
+    text-align: right;
 }
 
 .div_cart_summary_quantity_control{

@@ -28,21 +28,23 @@ const ItemsList = () => {
                     {products.map((product) => (
                         <li key={product.id} className="li_itemslist">
                             <div>
-                                <img className="li_img_product" src={product.img} alt={product.desc} />
-                            </div>
-                            <div>
-                                <h3>{product.name}</h3>
-                            </div>
-                            <div>
-                                <h4>${product.price}</h4>
+                                <div>
+                                    <img className="li_img_product" src={product.img} alt={product.desc} />
+                                </div>
+                                <div>
+                                    <h3>{product.name}</h3>
+                                </div>
+                                <div>
+                                    <h4>${product.price}</h4>
+                                </div>
                             </div>
                             <div className='div_details_and_cart'>
-                                <Link to={`/ProjectGymReact/product/detail/${product.id}`} state={ product }>
-                                    <div className='div_details'>
-                                        <p className='p_details'>Ver detalle</p>
-                                    </div>
-                                </Link>
-                            </div>
+                                    <Link to={`/ProjectGymReact/product/detail/${product.id}`} state={ product }>
+                                        <div className='div_details'>
+                                            <p className='p_details'>Ver detalle</p>
+                                        </div>
+                                    </Link>
+                                </div>
                         </li>
                     ))}
                 </ul>
