@@ -86,5 +86,24 @@ export async function getUserToLogin(email, password) {
     }
 }
 
+export async function filterProducts(productType){
+    let products = [];
+    try {
+        const q = query(collection(db, "products"), where("type", "==", productType));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+            console.error("Product not found");
+            return products;
+        }
+        
+        products = querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error al obtener products", error);
+    }finally{
+        return products;
+    }
+}
+
 const defaultMessage = "db"
 export default defaultMessage;

@@ -3,12 +3,13 @@ import CartShoppingContext from '../ContextAPI/ContextCart/CartShoppingContext';
 import { Link } from "react-router-dom";
 import "../../styles/cartSummary.css"
 import QuantityControlWithQuantity from '../ItemDetailControl/QuantityControlWithQuantity';
+import { SessionContext } from '../ContextAPI/ContextSession/SessionContext';
 import CartCheckout from './CartCheckout';
 
 const CartSummary = () => {
 
     const {cartShopping, quantityFinal} = useContext(CartShoppingContext);
-
+    const { session } = useContext(SessionContext);
     function calcTotal() {
         let sum = 0;
         const cartShoppingTemp = [...cartShopping];
@@ -22,7 +23,7 @@ const CartSummary = () => {
 
     const total = calcTotal();
     return (
-        <section>
+        <section className='view_default'>
             {cartShopping.length === 0 ? (
                 <div>
                     <h2>Hello world, there is nothing in your cart. Please add something to continue.</h2>
@@ -83,7 +84,14 @@ const CartSummary = () => {
                                 <h3>Dirección: </h3>
                             </div>
                             <div className='div_btn_buy'>
-                                <Link to={CartCheckout} className='btn_buy'> Comprar </Link>
+                                {
+                                    !session ? (
+                                        <Link className='btn_buy' to={"/ProjectGymReact/Login"}>Comprar</Link>
+                                    ) : (
+                                        <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Comprar</Link>
+                                    )
+                                }
+            
                             </div>
                         </div>
                     </div>

@@ -1,10 +1,29 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CartShoppingContext } from './ContextAPI/ContextCart/CartShoppingContext';
+import { SessionContext } from './ContextAPI/ContextSession/SessionContext';
+import {filterProducts} from '../firebase';
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = ( { onFilterChange } ) => {
     const { quantityFinal } = useContext(CartShoppingContext);
+    const { session, logout } = useContext(SessionContext);
+    const location = useLocation();
+    const handleLoginClick = () => {
+        localStorage.setItem("preLocation", location.pathname);
+    };
+    const handleLogoutClick = () => {
+        logout();
+    };
+
+    //handle to filter
+    // const handleFilter = async (e) => {
+    //     await filterProducts(e);
+    // };
+
+    const handleFilter = (filterValue) => () => {
+        onFilterChange(filterValue);
+    };
 
     return (
         <header>
@@ -19,38 +38,46 @@ const Header = () => {
                     {/* This one start the union */}
                     <div className="div_column_navegacion">
                         <div className="navegacion_div">
-                            <Link className="navegacion_a" to={"/ProjectGymReact/"}>
+                            <Link onClick={handleFilter("")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p" id="inicio">Todo</p>
                             </Link>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="">
+                            <Link onClick={handleFilter("proteina")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p" id="sobre_mi">Proteínas</p>
-                            </a>
+                            </Link>
                         </div>
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="">
+                            <Link onClick={handleFilter("creatina")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p" id="proyectos">Creatinas</p>
-                            </a>
+                            </Link>
                         </div>
-                        <div className="navegacion_div">
-                            <a className="navegacion_a" href="">
+                        {/* Se me olvidó subir los pre entreno a la db jaja */}
+                        {/* <div className="navegacion_div">
+                            <Link onClick={handleFilter("preentreno")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p">Pre entreno</p>
-                            </a>
-                        </div>
+                            </Link>
+                        </div> */}
                         <div className="navegacion_div">
-                            <a className="navegacion_a" href="">
+                            <Link onClick={handleFilter("suplementos")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p id="navegacion_p_last_child" className="navegacion_p">Suplementos y otros</p>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     {/* This one end the union */}
                     <div className="navegacion_div div_column_iniciar_sesion_registro">
-                        <Link to={"/ProjectGymReact/Login"}>
-                            <p className="navegacion_p">
-                            Iniciar sesión
-                            </p>
-                        </Link>
+                        {
+                            !session ? (
+                                <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"}>
+                                    <p className="navegacion_p">Iniciar sesión</p>
+                                </Link>
+                            ) : (
+                                <Link onClick={handleLogoutClick} to={location.pathname}>
+                                <p className="navegacion_p">Cerrar sesión</p>
+                                </Link>
+                            )
+                        }
+
                     </div>
                     <div className="navegacion_div div_column_shopping_cart">
                         <Link to={"/ProjectGymReact/CartSummary"}>

@@ -2,9 +2,9 @@ import React from 'react'
 
 const CartCheckout = () => {
     return (
-        <div>
+        <section className='view_default'>
             <h2>Hi</h2>
-        </div>
+        </section>
     )
 }
 

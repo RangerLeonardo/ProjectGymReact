@@ -12,7 +12,7 @@ const ProductDetail = ({ product }) => {
     };
 
     return (
-        <section className='section_detail_product'>
+        <section className='section_detail_product view_default'>
             <div className='div_container_detail'>
                 <div className='div_img_container'> 
                     <div>

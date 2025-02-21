@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { SessionContext } from '../ContextAPI/ContextSession/SessionContext';
 
-const Login = () => {
+const Login = ( fromSomewhere) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { login } = useContext(SessionContext);
@@ -15,7 +15,8 @@ const Login = () => {
         if (!loginSuccessful) {
             alert('Usuario o contraseña incorrectos');
         } else {
-            const from = location.state?.from || '/ProjectGymReact';
+            const path = localStorage.getItem("preLocation");
+            const from = path !== null ?  path : '/ProjectGymReact/';
             navigate(from, { replace: true });
         }
     };

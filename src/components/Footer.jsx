@@ -10,9 +10,15 @@ const Footer = () =>{
             </div>
 
             <div className="div_img_footer">
-                <img className="img_footer" src="/ProjectGymReact/img/linkedin.webp" alt="Mi linkedin"/>
-                <img className="img_footer" src="/ProjectGymReact/img/github-gris_1.webp" alt="Mi github"/>
-                <img className="img_footer" src="/ProjectGymReact/img/gmail.webp" alt="Mi email"/>
+                <a href="https://www.linkedin.com/in/brandon-leonardo-adata-barrera">
+                    <img className="img_footer" src="/ProjectGymReact/img/linkedin.webp" alt="Mi linkedin"/>
+                </a>
+                <a href="https://github.com/rangerLeonardo">
+                    <img className="img_footer" src="/ProjectGymReact/img/github-gris_1.webp" alt="Mi github"/>
+                </a>
+                <a href="mailto:brandonleonardobarrera@gmail.com">
+                    <img className="img_footer" src="/ProjectGymReact/img/gmail.webp" alt="Mi email"/>
+                </a>
             </div>
 
         </div>
