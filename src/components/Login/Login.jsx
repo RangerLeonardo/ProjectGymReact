@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { SessionContext } from '../ContextAPI/ContextSession/SessionContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const history = useHistory();
+    const { login } = useContext(SessionContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí puedes manejar el envío del formulario, por ejemplo, autenticar al usuario
-        console.log('Email:', email);
-        console.log('Password:', password);
-        // Redirigir a la página principal después de iniciar sesión (ajusta la ruta según tu aplicación)
-        // history.push('/ProjectGymReact');
+        const loginSuccessful = await login(email, password);
+        if (!loginSuccessful) {
+            alert('Usuario o contraseña incorrectos');
+        } else {
+            const from = location.state?.from || '/ProjectGymReact';
+            navigate(from, { replace: true });
+        }
     };
 
     return (
