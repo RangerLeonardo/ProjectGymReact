@@ -46,11 +46,11 @@ const Header = () => {
                     </div>
                     {/* This one end the union */}
                     <div className="navegacion_div div_column_iniciar_sesion_registro">
-                        <a href="#iniciarSesionRegistro">
+                        <Link to={"/ProjectGymReact/Login"}>
                             <p className="navegacion_p">
                             Iniciar sesión
                             </p>
-                        </a>
+                        </Link>
                     </div>
                     <div className="navegacion_div div_column_shopping_cart">
                         <Link to={"/ProjectGymReact/CartSummary"}>

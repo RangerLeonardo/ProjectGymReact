@@ -7,6 +7,8 @@ import ItemDetailProduct from './components/Items/ItemDetailProduct';
 import ContextCartShopping from './components/ContextAPI/ContextCart/ContextCartShopping';
 import CartSummary from './components/Checkout/CartSummary';
 import CartCheckout from './components/Checkout/CartCheckout';
+import Login from './components/Login/Login';
+import Register from './components/Login/Register';
 
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
             <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
             <Route path="/ProjectGymReact/CartSummary" element={<CartSummary />} />
             <Route path="/ProjectGymReact/CartSummary/CartCheckout" element={<CartCheckout />} />
+            <Route path="/ProjectGymReact/Login" element={<Login />} />
+            <Route path="/ProjectGymReact/Register" element={<Register />} />
+
 
           </Routes>
           <Footer />

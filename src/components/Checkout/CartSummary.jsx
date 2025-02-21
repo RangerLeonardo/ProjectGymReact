@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
 import CartShoppingContext from '../ContextAPI/ContextCart/CartShoppingContext';
+import { Link } from "react-router-dom";
 import "../../styles/cartSummary.css"
 import QuantityControlWithQuantity from '../ItemDetailControl/QuantityControlWithQuantity';
+import CartCheckout from './CartCheckout';
 
 const CartSummary = () => {
 
@@ -72,10 +74,16 @@ const CartSummary = () => {
                                 <h3>Total: ${total}.00</h3>
                             </div>
                             <div>
+                                <h3>Envío: $0.00</h3>
+                            </div>
+                            <div>
                                 <h3>Cantidad: {quantityFinal}</h3>
                             </div>
                             <div>
-                                <h3>Dirección</h3>
+                                <h3>Dirección: </h3>
+                            </div>
+                            <div className='div_btn_buy'>
+                                <Link to={CartCheckout} className='btn_buy'> Comprar </Link>
                             </div>
                         </div>
                     </div>

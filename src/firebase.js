@@ -46,5 +46,49 @@ export async function getProducts() {
     return products;
 }
 
+export const postUser = async (formData) => {
+    const batch = writeBatch(db);
+    // Extrae los datos del formulario
+    const { name, last_name, email, password, addressToRef } = formData;
+    const { street, colonia } = addressToRef;
+
+    // Crea referencias para los documentos
+    const userRef = doc(collection(db, 'users'));
+    const addressRef = doc(collection(db, 'address'));
+
+    // Datos para guardar
+    const userData = {
+        name,
+        last_name,
+        email,
+        password,
+        addressRef,
+    };
+
+    const addressData = {
+        street,
+        colonia,
+    };
+
+    // Agrega las operaciones al batch
+    batch.set(userRef, userData);
+    batch.set(addressRef, addressData);
+
+    try {
+        await batch.commit();
+        console.log("Usuario creado correctamente");
+    } catch (error) {
+        console.error("Error al crear usuario", error);
+      throw error; // Lanza el error para manejarlo en el componente
+    }
+};
+
+export async function getUserToLogin (email, password) {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const users = querySnapshot.docs.map(doc => doc.data());
+    const user = users.find(user => user.email === email && user.password === password);
+    return user;
+}
+
 const defaultMessage = "Db"
 export default defaultMessage;
