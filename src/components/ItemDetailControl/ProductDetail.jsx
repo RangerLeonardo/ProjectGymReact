@@ -15,7 +15,9 @@ const ProductDetail = ({ product }) => {
         <section className='section_detail_product'>
             <div className='div_container_detail'>
                 <div className='div_img_container'> 
-                    <img src={product.img} alt={product.desc} />
+                    <div>
+                        <img src={product.img} alt={product.desc} />
+                    </div>
                 </div>
                 <div className='div_detail_container_data'>
                     <div>
@@ -28,7 +30,7 @@ const ProductDetail = ({ product }) => {
                             illum labore laudantium animi fugit!</p>
                     </div>
                     <div className='div_detail_price'>
-                        ${product.precio}
+                        ${product.price}
                     </div>
                     <div className='div_detail_principal_container_quantity'>
                         <QuantityControl 
