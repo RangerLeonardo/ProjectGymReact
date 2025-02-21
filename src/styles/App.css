@@ -30,6 +30,10 @@ button {
   cursor: pointer;
 }
 
+.view_default{
+  min-height: 70vh;
+}
+
 a{
   text-decoration: none;
 }

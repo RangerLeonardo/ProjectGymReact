@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,14 +18,16 @@ function App() {
     lastname: "Adata"
   };
 
+  const [filter, setFilter] = useState('');
+
   return (
     <BrowserRouter>
       <SessionContextLogic>
         <CartShoppingContextLogic>
-            <Header />
+            <Header onFilterChange={setFilter}/>
             <Routes>
               
-              <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} />} />
+              <Route path="/ProjectGymReact/" element={<SectionInicio userName={user.name} userLastname={user.lastname} filter={filter} />} />
               <Route path="/ProjectGymReact/product/detail/:id/" element={<ItemDetailProduct />} />
               <Route path="/ProjectGymReact/CartSummary" element={<CartSummary />} />
               <Route path="/ProjectGymReact/CartSummary/CartCheckout" element={<CartCheckout />} />

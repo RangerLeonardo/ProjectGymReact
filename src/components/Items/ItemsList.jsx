@@ -4,21 +4,24 @@ import { Link } from 'react-router-dom';
 import "../../styles/itemList.css";
 import { getProducts } from '../../firebase';
 
-const ItemsList = () => {
+const ItemsList = ( {filter} ) => {
     const [products, setProducts] = useState([]);
-
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const productsData = await getProducts();
-                setProducts(productsData);
+                const filteredProducts = productsData.filter((product) =>
+                    product.type.toLowerCase().includes(filter.toLowerCase())
+                );
+                setProducts(filteredProducts);
             } catch (error) {
                 console.error("Error al obtener productos:", error);
             }
         };
 
         fetchProducts();
-    }, []);
+    }, [filter]);
 
     return (
         <div className='store-container-wrapper'>
