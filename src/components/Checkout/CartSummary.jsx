@@ -47,8 +47,10 @@ const CartSummary = () => {
     return (
         <section className='view_default'>
             {cartShopping.length === 0 ? (
-                <div>
-                    <h2>There is nothing in your cart. Please add something to continue.</h2>
+                <div className='div_cart_empty'>
+                    <div>
+                        <h2>There is nothing in your cart. Please add something to continue.</h2>
+                    </div>
                 </div>
             ) : (
                 <div>

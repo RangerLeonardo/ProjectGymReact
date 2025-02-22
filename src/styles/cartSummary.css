@@ -3,6 +3,15 @@
     grid-template-columns: 65% 35%;
 }
 
+.div_cart_empty{
+    display: flex;
+    text-align: center;
+    margin-top: 3rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .div_principal_li_cart_summary{
     display: grid;
     grid-template-columns: 20% 60% 20%;
