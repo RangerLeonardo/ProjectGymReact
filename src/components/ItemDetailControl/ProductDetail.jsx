@@ -36,6 +36,7 @@ const ProductDetail = ({ product }) => {
                         <QuantityControl 
                             quantity={quantity}
                             setQuantity={setQuantity}
+                            stock={product.stock}
                         />
                     </div>
                     <div className='div_add_to_cart'>

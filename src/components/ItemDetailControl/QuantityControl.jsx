@@ -1,8 +1,15 @@
 import React from 'react';
 
-const QuantityControl = ({ quantity,setQuantity }) => {
+const QuantityControl = ({ quantity, setQuantity, stock }) => {
 
-    const increment = () => setQuantity(quantity + 1);
+    const increment = () => {
+        if (quantity <= stock) {
+            setQuantity(quantity + 1);
+        }else{
+            alert('No hay stock suficiente');
+        }
+    };
+
     const decrement = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
 
     return (

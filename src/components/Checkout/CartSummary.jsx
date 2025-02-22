@@ -24,7 +24,6 @@ const CartSummary = () => {
 
     const handleDeleteFromCart = (item) => () => {
         const updatedCart = cartShopping.filter(cartItem => cartItem.id !== item.id);
-        const cartEmpty = updatedCart.length === 0 ? 0: null;
         setCartShopping(updatedCart);
 
         const updatedQuantityFinal = updatedCart.reduce((sum, item) => sum + item.quantity, 0);
@@ -84,6 +83,7 @@ const CartSummary = () => {
                                                 <QuantityControlWithQuantity
                                                     cantidad={item.quantity}
                                                     onQuantityChange={(newQuantity) => handleQuantityChange(item.id, newQuantity)}
+                                                    stock={item.stock}
                                                 />
                                                 <div className='div_cart_summary_btn_eliminar'>
                                                     <button onClick={handleDeleteFromCart(item)}>Eliminar</button>
