@@ -8,13 +8,17 @@ const SessionContextLogic = ({ children }) => {
 
     const login = async (email, password) => {
         let loginCorrect = false;
-        setUser(await getUserToLogin(email, password)); // Espera a que la promesa se resuelva
-        if (user != null) {
+        const userData = await getUserToLogin(email, password); 
+        if (userData != null) {
+            setUser(userData); 
             setSession(true);
             loginCorrect = true;
+        } else {
+            console.error("Credenciales incorrectas o usuario no encontrado.");
         }
         return loginCorrect;
     };
+    
     
 
     const logout = () => {

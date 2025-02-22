@@ -53,14 +53,12 @@
     padding: 1.5rem;
     border-radius: 1rem;
     color: var(--blanco-primario);
-    background-color: var(--negro-primario);
     transition: .1s all linear;
+    background-color: #28a745;
+
 }
 
 .btn_buy:hover{
-    scale: 1.1;
-    transition: .1s all linear;
-    color: var(--negro-primario);
-    background-color: var(--blanco-primario);
-    border: 1px solid var(--negro-primario);
+    background-color: #218838;
+
 }
