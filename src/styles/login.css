@@ -1,0 +1,55 @@
+.section_principal_login {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.div_principal_login{
+    margin: 4rem 0;
+    border: 2px solid var(--negro-primario);
+    padding: 4rem 8rem;
+    background-color: var(--blanco-primario);
+}
+
+.div_login_title{
+    text-align: center;
+    margin: -2rem 0 4rem 0;
+}
+
+.section_title_login{
+    text-align: center;
+}
+
+.input_login{
+    margin: .5rem 0 2rem 0;
+    border:none;
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 2.5rem;
+    font-weight: bold;
+}
+
+.div_btn_iniciar_sesion{
+    text-align: center;
+    height: 3rem;
+    font-size: 1.6rem;
+}
+
+.btn_iniciar_sesion{
+    color: var(--blanco-primario);
+    background-color: var(--negro-primario);
+    width: 100%;
+    height: 100%;
+    border-radius: .3rem ;
+    transition: .3s all ease-out;
+}
+
+.div_login_label_input label{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.div_login_register_or_recover{
+    font-size: 1.5rem;
+}

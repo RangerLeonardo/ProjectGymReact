@@ -14,8 +14,8 @@ import SessionContextLogic from './components/ContextAPI/ContextSession/SessionC
 
 function App() {
   const user = {
-    name: "Brandon",
-    lastname: "Adata"
+    name: "",
+    lastname: ""
   };
 
   const [filter, setFilter] = useState('');

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { postUser } from '../../firebase';
+import "../../styles/register.css"
 
 const Register = () => {
     const [formDataUser, setFormDataUser] = useState({
@@ -43,76 +44,151 @@ const Register = () => {
     };
 
     return (
-        <section>
-            <form action="/ProjectGymReact" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="nombres">Nombre(s):</label>
-                    <input
-                        type="text"
-                        id="nombres"
-                        name="name"
-                        value={formDataUser.name}
-                        onChange={handleChangeDataUser}
-                        required
-                    />
+        <section className='view_default'>
+            <div className='section_title_login'>
+                <h2>Crea una cuenta en REAL MAN</h2>
+            </div>
+
+            <div className='section_principal_register'>
+
+                <div className='div_principal_register'>
+                    <div className='div_title_register_form'>
+                        <h2>Crear cuenta</h2>
+                    </div>
+                    <div className='div_form_register'>
+                        <form action="/ProjectGymReact" onSubmit={handleSubmit} className='form_register'>
+                            <div className='div_login_label_input'>
+
+                                <div>
+
+                                    <label htmlFor="nombres">Nombre(s)</label>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="nombres"
+                                        name="name"
+                                        value={formDataUser.name}
+                                        onChange={handleChangeDataUser}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+                            <div className='div_login_label_input'>
+
+                                <div>
+
+                                    <label htmlFor="apellidos">Apellidos</label>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="apellidos"
+                                        name="last_name"
+                                        value={formDataUser.last_name}
+                                        onChange={handleChangeDataUser}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+                            <div className='div_login_label_input'>
+
+                                <div>
+
+                                    <label htmlFor="email">Email</label>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formDataUser.email}
+                                        onChange={handleChangeDataUser}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+                            <div className='div_login_label_input'>
+
+                                <div>
+
+                                    <label htmlFor="password">Contraseña</label>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        value={formDataUser.password}
+                                        onChange={handleChangeDataUser}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+
+                            <div className='div_title_direccion'>
+                                <h3>Dirección de envío</h3>
+                            </div>
+
+                            <div className='div_login_label_input'>
+
+                                <div>
+                                    <label htmlFor="calle">Calle y número</label>
+
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="calle"
+                                        name="street"
+                                        value={formDataAddress.street}
+                                        onChange={handleChangeDataAddress}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+                            <div className='div_login_label_input'>
+
+                                <div>
+
+                                    <label htmlFor="colonia">Colonia</label>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="colonia"
+                                        name="colonia"
+                                        value={formDataAddress.colonia}
+                                        onChange={handleChangeDataAddress}
+                                        required
+                                        className='input_login'
+                                    />
+                                </div>
+
+                            </div>
+                            <div className='div_btn_crear_cuenta'>
+                                <button className='btn_crear_cuenta btn_hover_generic_white' type="submit">Crear cuenta</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="apellidos">Apellidos:</label>
-                    <input
-                        type="text"
-                        id="apellidos"
-                        name="last_name"
-                        value={formDataUser.last_name}
-                        onChange={handleChangeDataUser}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formDataUser.email}
-                        onChange={handleChangeDataUser}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Contraseña:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formDataUser.password}
-                        onChange={handleChangeDataUser}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="calle">Calle:</label>
-                    <input
-                        type="text"
-                        id="calle"
-                        name="street"
-                        value={formDataAddress.street}
-                        onChange={handleChangeDataAddress}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="colonia">Colonia:</label>
-                    <input
-                        type="text"
-                        id="colonia"
-                        name="colonia"
-                        value={formDataAddress.colonia}
-                        onChange={handleChangeDataAddress}
-                        required
-                    />
-                </div>
-                <button type="submit">Registrar</button>
-            </form>
+            </div>
         </section>
     );
 };

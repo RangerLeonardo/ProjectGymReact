@@ -13,6 +13,13 @@ html {
   --sombra-primaria: #9a9a9a;
 }
 
+.btn_hover_generic_white:hover{
+  transition: .3s all ease-in;
+  color: var(--negro-primario);
+  background-color: var(--blanco-primario);
+  border: 1px solid var(--negro-primario);
+}
+
 body{
   background-color: #f6f6f6;
   color: var(--negro-primario);
@@ -31,7 +38,7 @@ button {
 }
 
 .view_default{
-  min-height: 70vh;
+  min-height: 72vh;
 }
 
 a{

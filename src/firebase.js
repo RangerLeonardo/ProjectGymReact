@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, getDocs, collection, doc, writeBatch, query, where } from "firebase/firestore";
+import { getFirestore, getDocs, collection, doc, writeBatch, query, where, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCctttVWGUc5IBnmkH8U1kLGmSG1z-CpA0",
@@ -71,8 +71,19 @@ export async function getUserToLogin(email, password) {
         const userDoc = querySnapshot.docs[0];
         const userData = userDoc.data();
         
-        if (userData.password === password) {
+        if (userData.password === password && userData.email === email) {
             user = userData;
+
+            const addressDocRef = user.addressRef;
+            const addressDoc = await getDoc(addressDocRef);
+
+            if (addressDoc.exists()) {
+                const addressData = addressDoc.data();
+                user.address = addressData;
+            } else {
+                console.error("La dirección del usuario no existe.");
+            }
+
         } else {
             console.error("Contraseña incorrecta");
         }

@@ -4,10 +4,11 @@ import { getUserToLogin } from '../../../firebase';
 
 const SessionContextLogic = ({ children }) => {
     const [session, setSession] = useState(false);
+    const [user, setUser] = useState(null);
 
     const login = async (email, password) => {
         let loginCorrect = false;
-        const user = await getUserToLogin(email, password); // Espera a que la promesa se resuelva
+        setUser(await getUserToLogin(email, password)); // Espera a que la promesa se resuelva
         if (user != null) {
             setSession(true);
             loginCorrect = true;
@@ -21,7 +22,7 @@ const SessionContextLogic = ({ children }) => {
     };
 
     return (
-        <SessionContext.Provider value={{ session, login, logout }}>
+        <SessionContext.Provider value={{ session, login, logout, user }}>
             {children}
         </SessionContext.Provider>
     );
