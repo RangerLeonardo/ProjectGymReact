@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const QuantityControlWithQuantity = ({ cantidad, setQuantityFinal }) => {
-    const cantidadIsValid = cantidad !== undefined ? cantidad : 1;
-    const [quantity, setQuantity] = useState(cantidadIsValid);
+const QuantityControlWithQuantity = ({ cantidad, onQuantityChange }) => {
+    const [quantity, setQuantity] = useState(cantidad);
+
+    useEffect(() => {
+        setQuantity(cantidad);
+    }, [cantidad]);
 
     const increment = () => {
-        setQuantity(quantity + 1)
-        setQuantityFinal((prevQuantityFinal) => prevQuantityFinal + 1);
+        setQuantity(prevQuantity => {
+            const newQuantity = prevQuantity + 1;
+            onQuantityChange(newQuantity);
+            return newQuantity;
+        });
     };
-    const decrement = () =>{ 
-        setQuantity(quantity > 1 ? quantity - 1 : 1)
-        if(quantity > 1){
-            setQuantityFinal((prevQuantityFinal) => prevQuantityFinal - 1);
-        }
 
+    const decrement = () => {
+        setQuantity(prevQuantity => {
+            if (prevQuantity > 1) {
+                const newQuantity = prevQuantity - 1;
+                onQuantityChange(newQuantity);
+                return newQuantity;
+            }
+            return prevQuantity;
+        });
     };
 
     return (

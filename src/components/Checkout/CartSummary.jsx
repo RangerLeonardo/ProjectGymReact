@@ -7,7 +7,7 @@ import { SessionContext } from '../ContextAPI/ContextSession/SessionContext';
 
 const CartSummary = () => {
 
-    const {cartShopping, setCartShopping, quantityFinal, setQuantityFinal} = useContext(CartShoppingContext);
+    const { cartShopping, setCartShopping, quantityFinal, setQuantityFinal } = useContext(CartShoppingContext);
     const { session, user } = useContext(SessionContext);
 
     function calcTotal() {
@@ -23,22 +23,25 @@ const CartSummary = () => {
     const total = calcTotal();
 
     const handleDeleteFromCart = (item) => () => {
-        const product = cartShopping.find(cartItem => cartItem.id === item.id);
-        const quantityToRest = product ? product.quantity : 0;
-
-        setQuantityFinal((prevQuantityFinal) => {
-            if (prevQuantityFinal - quantityToRest < 0) {
-                return 0;
-            } else {
-                return prevQuantityFinal - quantityToRest;
-            }
-        });
-
         const updatedCart = cartShopping.filter(cartItem => cartItem.id !== item.id);
         setCartShopping(updatedCart);
+
+        const updatedQuantity = quantityFinal - item.quantity;
+        setQuantityFinal(updatedQuantity);
     };
 
+    const handleQuantityChange = (itemId, newQuantity) => {
+        const updatedCart = cartShopping.map(item => {
+            if (item.id === itemId) {
+                return { ...item, quantity: newQuantity };
+            }
+            return item;
+        });
+        setCartShopping(updatedCart);
 
+        const updatedQuantityFinal = updatedCart.reduce((sum, item) => sum + item.quantity, 0);
+        setQuantityFinal(updatedQuantityFinal);
+    };
 
     return (
         <section className='view_default'>
@@ -54,8 +57,8 @@ const CartSummary = () => {
                     <div className='div_principal_cart_summary'>
                         <div className='div_cart_summary_items'>
                             <ul>
-                                {cartShopping.map((item, index) => (
-                                    <li key={index} className='li_cart_summary'>
+                                {cartShopping.map((item) => (
+                                    <li key={item.id} className='li_cart_summary'>
                                         <div className='div_principal_li_cart_summary'>
 
                                             <div className='div_cart_summary_img'>
@@ -74,10 +77,11 @@ const CartSummary = () => {
                                                 </div>
 
                                             </div>
-
                                             <div className='div_cart_summary_quantity_control'>
-                                                <QuantityControlWithQuantity cantidad={item.quantity} setQuantityFinal={setQuantityFinal}/>
-
+                                                <QuantityControlWithQuantity
+                                                    cantidad={item.quantity}
+                                                    onQuantityChange={(newQuantity) => handleQuantityChange(item.id, newQuantity)}
+                                                />
                                                 <div className='div_cart_summary_btn_eliminar'>
                                                     <button onClick={handleDeleteFromCart(item)}>Eliminar</button>
                                                 </div>
@@ -100,7 +104,7 @@ const CartSummary = () => {
                                 <h3>Productos: {quantityFinal}</h3>
                             </div>
                             <div>
-                                <h3>Dirección: {user !== null ? `${user.address.street}, ${user.address.colonia}` : 'Dirección no disponible'}</h3>                            
+                                <h3>Dirección: {user !== null ? `${user.address.street}, ${user.address.colonia}` : 'Dirección no disponible'}</h3>
                             </div>
 
                             <div className='div_btn_buy'>
@@ -111,7 +115,7 @@ const CartSummary = () => {
                                         <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Proceder al pago</Link>
                                     )
                                 }
-            
+
                             </div>
                         </div>
                     </div>
