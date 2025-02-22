@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const QuantityControlWithQuantity = ({ cantidad, onQuantityChange }) => {
+const QuantityControlWithQuantity = ({ cantidad, onQuantityChange, stock }) => {
     const [quantity, setQuantity] = useState(cantidad);
 
     useEffect(() => {
@@ -9,9 +9,14 @@ const QuantityControlWithQuantity = ({ cantidad, onQuantityChange }) => {
 
     const increment = () => {
         setQuantity(prevQuantity => {
-            const newQuantity = prevQuantity + 1;
-            onQuantityChange(newQuantity);
-            return newQuantity;
+            if (prevQuantity <= stock) {
+                const newQuantity = prevQuantity + 1;
+                onQuantityChange(newQuantity);
+                return newQuantity;
+            }else{
+                alert("Sin inventario suficiente");
+                return prevQuantity;
+            }
         });
     };
 
