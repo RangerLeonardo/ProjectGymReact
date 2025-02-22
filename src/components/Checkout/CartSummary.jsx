@@ -23,9 +23,19 @@ const CartSummary = () => {
     const total = calcTotal();
 
     const handleDeleteFromCart = (item) => () => {
+        const product = cartShopping.find(cartItem => cartItem.id === item.id);
+        const quantityToRest = product ? product.quantity : 0;
+
+        setQuantityFinal((prevQuantityFinal) => {
+            if (prevQuantityFinal - quantityToRest < 0) {
+                return 0;
+            } else {
+                return prevQuantityFinal - quantityToRest;
+            }
+        });
+
         const updatedCart = cartShopping.filter(cartItem => cartItem.id !== item.id);
         setCartShopping(updatedCart);
-
     };
 
 
