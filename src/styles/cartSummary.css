@@ -38,13 +38,13 @@
 .div_cart_summary_checkout{
     border: 1px solid var(--negro-primario);
     margin: 2rem;
-    min-height: 30rem;
+    min-height: 35rem;
     max-height: 35rem;
-    width: 48rem;
+    width: 55rem;
 }
 
 .div_btn_buy{
-    margin-top: 4rem;
+    margin-top: 6rem;
     text-align: center;
 }
 
