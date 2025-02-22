@@ -16,11 +16,6 @@ const Header = ( { onFilterChange } ) => {
         logout();
     };
 
-    //handle to filter
-    // const handleFilter = async (e) => {
-    //     await filterProducts(e);
-    // };
-
     const handleFilter = (filterValue) => () => {
         onFilterChange(filterValue);
     };

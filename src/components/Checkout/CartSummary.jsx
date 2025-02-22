@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import "../../styles/cartSummary.css"
 import QuantityControlWithQuantity from '../ItemDetailControl/QuantityControlWithQuantity';
 import { SessionContext } from '../ContextAPI/ContextSession/SessionContext';
-import CartCheckout from './CartCheckout';
 
 const CartSummary = () => {
 
-    const {cartShopping, quantityFinal} = useContext(CartShoppingContext);
-    const { session } = useContext(SessionContext);
+    const {cartShopping, setCartShopping, quantityFinal, setQuantityFinal} = useContext(CartShoppingContext);
+    const { session, user } = useContext(SessionContext);
+
     function calcTotal() {
         let sum = 0;
         const cartShoppingTemp = [...cartShopping];
@@ -20,13 +20,21 @@ const CartSummary = () => {
 
         return sum;
     }
-
     const total = calcTotal();
+
+    const handleDeleteFromCart = (item) => () => {
+        const updatedCart = cartShopping.filter(cartItem => cartItem.id !== item.id);
+        setCartShopping(updatedCart);
+
+    };
+
+
+
     return (
         <section className='view_default'>
             {cartShopping.length === 0 ? (
                 <div>
-                    <h2>Hello world, there is nothing in your cart. Please add something to continue.</h2>
+                    <h2>There is nothing in your cart. Please add something to continue.</h2>
                 </div>
             ) : (
                 <div>
@@ -58,9 +66,10 @@ const CartSummary = () => {
                                             </div>
 
                                             <div className='div_cart_summary_quantity_control'>
-                                                <QuantityControlWithQuantity cantidad={item.quantity}/>
+                                                <QuantityControlWithQuantity cantidad={item.quantity} setQuantityFinal={setQuantityFinal}/>
+
                                                 <div className='div_cart_summary_btn_eliminar'>
-                                                    <button onClick={console.log("Eliminando")}>Eliminar</button>
+                                                    <button onClick={handleDeleteFromCart(item)}>Eliminar</button>
                                                 </div>
                                             </div>
 
@@ -75,20 +84,21 @@ const CartSummary = () => {
                                 <h3>Total: ${total}.00</h3>
                             </div>
                             <div>
-                                <h3>Envío: $0.00</h3>
+                                <h3>Envío: ¡GRATIS!</h3>
                             </div>
                             <div>
-                                <h3>Cantidad: {quantityFinal}</h3>
+                                <h3>Productos: {quantityFinal}</h3>
                             </div>
                             <div>
-                                <h3>Dirección: </h3>
+                                <h3>Dirección: {user !== null ? `${user.address.street}, ${user.address.colonia}` : 'Dirección no disponible'}</h3>                            
                             </div>
+
                             <div className='div_btn_buy'>
                                 {
                                     !session ? (
-                                        <Link className='btn_buy' to={"/ProjectGymReact/Login"}>Comprar</Link>
+                                        <Link className='btn_buy' to={"/ProjectGymReact/Login"}>Proceder al pago</Link>
                                     ) : (
-                                        <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Comprar</Link>
+                                        <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Proceder al pago</Link>
                                     )
                                 }
             

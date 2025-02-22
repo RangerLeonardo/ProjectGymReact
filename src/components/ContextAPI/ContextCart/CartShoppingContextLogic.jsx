@@ -31,7 +31,7 @@ const CartShoppingContextLogic = ({ children }) => {
     };
 
     return (
-        <CartShoppingContext.Provider value={{ cartShopping, getCartShopping, quantityFinal }}>
+        <CartShoppingContext.Provider value={{ cartShopping, getCartShopping, quantityFinal, setQuantityFinal, setCartShopping }}>
             {children}
         </CartShoppingContext.Provider>
     );
