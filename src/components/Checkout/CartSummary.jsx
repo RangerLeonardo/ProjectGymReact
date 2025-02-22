@@ -24,10 +24,11 @@ const CartSummary = () => {
 
     const handleDeleteFromCart = (item) => () => {
         const updatedCart = cartShopping.filter(cartItem => cartItem.id !== item.id);
+        const cartEmpty = updatedCart.length === 0 ? 0: null;
         setCartShopping(updatedCart);
 
-        const updatedQuantity = quantityFinal - item.quantity;
-        setQuantityFinal(updatedQuantity);
+        const updatedQuantityFinal = updatedCart.reduce((sum, item) => sum + item.quantity, 0);
+        setQuantityFinal(updatedQuantityFinal);
     };
 
     const handleQuantityChange = (itemId, newQuantity) => {
