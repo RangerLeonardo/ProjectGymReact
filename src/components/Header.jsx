@@ -24,10 +24,13 @@ const Header = ( { onFilterChange } ) => {
         <header>
             <div className="div_header_navegacion_principal">
                 <section className="navegacion_principal">
-                    <div className="navegacion_logo navegacion_div">
-                        <Link to={"/ProjectGymReact/"}> 
-                            <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
-                        </Link>
+
+                    <div className="navegacion_logo navegacion_div" id='navegacion_logo_id'>
+                        <div>
+                            <Link to={"/ProjectGymReact/"}> 
+                                <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
+                            </Link>
+                        </div>
                     </div>
 
                     {/* This one start the union */}
@@ -60,19 +63,22 @@ const Header = ( { onFilterChange } ) => {
                         </div>
                     </div>
                     {/* This one end the union */}
-                    <div className="navegacion_div div_column_iniciar_sesion_registro">
+                    <div id='div_iniciar_sesion'> 
                         {
                             !session ? (
-                                <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"}>
-                                    <p className="navegacion_p">Iniciar sesión</p>
-                                </Link>
+                                <div>
+                                    <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"} className='navegacion_p_iniciar_sesion'>
+                                        Iniciar sesión
+                                    </Link>
+                                </div>
                             ) : (
-                                <Link onClick={handleLogoutClick} to={location.pathname}>
-                                <p className="navegacion_p">Cerrar sesión</p>
-                                </Link>
+                                <div>
+                                    <Link onClick={handleLogoutClick} to={location.pathname} className='navegacion_p_iniciar_sesion'>
+                                        Cerrar sesión
+                                    </Link>
+                                </div>
                             )
                         }
-
                     </div>
                     <div className="navegacion_div div_column_shopping_cart">
                         <Link to={"/ProjectGymReact/CartSummary"}>
