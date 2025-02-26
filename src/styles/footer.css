@@ -60,3 +60,39 @@ footer{
 }
 
 /* Footer */
+
+/* Footer devices */
+
+
+/* Device phone */
+@media screen and (max-width: 910px) {
+
+    .div_footer_parrafo{
+        grid-row-start: 2;
+        grid-column-start: 2;
+        height: 5rem;
+    }
+
+    .div_principal_footer{
+        grid-template-columns: 10% 80% 10%;
+    }
+
+}
+
+@media screen and (max-width: 270px) {
+
+
+    .div_principal_footer{
+        grid-template-columns: 3% 94% 3%;
+    }
+
+}
+
+/* Tablets */
+
+/* @media screen and (min-width: 801px) and (max-width: 1100px) {
+    .div_principal_footer{
+        background-color: aqua;
+    }
+} */
+

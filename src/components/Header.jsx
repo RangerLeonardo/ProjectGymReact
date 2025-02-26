@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { CartShoppingContext } from './ContextAPI/ContextCart/CartShoppingContext';
 import { SessionContext } from './ContextAPI/ContextSession/SessionContext';
-import {filterProducts} from '../firebase';
 import "../styles/Header.css";
 
-const Header = ( { onFilterChange } ) => {
+const Header = ({ onFilterChange }) => {
     const { quantityFinal } = useContext(CartShoppingContext);
     const { session, logout } = useContext(SessionContext);
     const location = useLocation();
@@ -20,21 +19,34 @@ const Header = ( { onFilterChange } ) => {
         onFilterChange(filterValue);
     };
 
+    const [menuActive, setMenuActive] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuActive(!menuActive);
+    };
+
+
     return (
         <header>
             <div className="div_header_navegacion_principal">
                 <section className="navegacion_principal">
 
-                    <div className="navegacion_logo navegacion_div" id='navegacion_logo_id'>
+                    {/* <!-- Logo --> */}
+                    <div className="navegacion_logo navegacion_div" id="navegacion_logo_id">
                         <div>
-                            <Link to={"/ProjectGymReact/"}> 
+                            <Link to={"/ProjectGymReact/"}>
                                 <img id="logo" src="/ProjectGymReact/img/Logo.png" alt="logo" />
                             </Link>
                         </div>
                     </div>
 
-                    {/* This one start the union */}
-                    <div className="div_column_navegacion">
+                    {/* <!-- Ícono de menú hamburguesa para pantallas pequeñas --> */}
+                    <div className="menu-icon" id="menu-icon" onClick={toggleMenu}>
+                        <i className="fa fa-bars"></i>
+                    </div>
+
+                    {/* <!-- Menú de navegación --> */}
+                    <div className={`div_column_navegacion ${menuActive ? 'active' : ''}`} id="nav-menu">
                         <div className="navegacion_div">
                             <Link onClick={handleFilter("")} className="navegacion_a" to={"/ProjectGymReact/"}>
                                 <p className="navegacion_p" id="inicio">Todo</p>
@@ -50,49 +62,48 @@ const Header = ( { onFilterChange } ) => {
                                 <p className="navegacion_p" id="proyectos">Creatinas</p>
                             </Link>
                         </div>
-                        {/* Se me olvidó subir los pre entreno a la db jaja */}
-                        {/* <div className="navegacion_div">
-                            <Link onClick={handleFilter("preentreno")} className="navegacion_a" to={"/ProjectGymReact/"}>
-                                <p className="navegacion_p">Pre entreno</p>
-                            </Link>
-                        </div> */}
                         <div className="navegacion_div">
                             <Link onClick={handleFilter("suplementos")} className="navegacion_a" to={"/ProjectGymReact/"}>
-                                <p id="navegacion_p_last_child" className="navegacion_p">Suplementos y otros</p>
+                                <p id="navegacion_p_last_child" className="navegacion_p">Suplementos</p>
                             </Link>
                         </div>
                     </div>
-                    {/* This one end the union */}
-                    <div id='div_iniciar_sesion'> 
+
+                    {/* <!-- Botón de Iniciar/Cerrar Sesión --> */}
+                    <div id="div_iniciar_sesion">
                         {
                             !session ? (
                                 <div>
-                                    <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"} className='navegacion_p_iniciar_sesion'>
+                                    <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"} className="navegacion_p_iniciar_sesion">
                                         Iniciar sesión
                                     </Link>
                                 </div>
                             ) : (
                                 <div>
-                                    <Link onClick={handleLogoutClick} to={location.pathname} className='navegacion_p_iniciar_sesion'>
+                                    <Link onClick={handleLogoutClick} to={location.pathname} className="navegacion_p_iniciar_sesion">
                                         Cerrar sesión
                                     </Link>
                                 </div>
                             )
                         }
                     </div>
+
+                    {/* <!-- Carrito de Compras --> */}
                     <div className="navegacion_div div_column_shopping_cart">
                         <Link to={"/ProjectGymReact/CartSummary"}>
                             <p className="navegacion_p">
-                            <i className="fa-solid fa-cart-shopping shopping_cart"></i>
-                            {quantityFinal > 0 && (
-                            <span className="cart_count">{quantityFinal}</span>
-                            )}
+                                <i className="fa-solid fa-cart-shopping shopping_cart"></i>
+                                {quantityFinal > 0 && (
+                                    <span className="cart_count">{quantityFinal}</span>
+                                )}
                             </p>
                         </Link>
                     </div>
+
                 </section>
             </div>
         </header>
+
     );
 }
 
