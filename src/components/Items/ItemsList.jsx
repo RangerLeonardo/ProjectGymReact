@@ -30,7 +30,7 @@ const ItemsList = ( {filter} ) => {
                 <ul className="ul_itemslist">
                     {products.map((product) => (
                         <li key={product.id} className="li_itemslist">
-                            <div>
+                            <div className='div_container_product'>
                                 <div>
                                     <img className="li_img_product" src={product.img} alt={product.desc} />
                                 </div>

@@ -106,19 +106,115 @@
 }
 
 /* Device phone */
-@media screen and (max-width: 767px) {
-    .div_header_navegacion_principal{
-        background-color: crimson;
+@media screen and (max-width: 1200px) {
+
+    .navegacion_principal{
+        grid-template-rows: 70% 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
+    .div_header_navegacion_principal{
+        height: 20rem;
+    }
+    .div_column_navegacion{
+        grid-row-start: 2;
+
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+
+
+    .navegacion_logo{
+        grid-column-start: 2;
+    }
+
+    .div_column_shopping_cart{
+        grid-column-start: 5;
+    }
+
+    #div_iniciar_sesion{
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
 }
 
-/* Tablets */
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-
+/* Estilos para el menú hamburguesa */
+.menu-icon {
+    display: none;
+    font-size: 3rem;
+    color: var(--blanco-primario);
+    cursor: pointer;
 }
 
+/* Estilos para el menú desplegable */
+.div_column_navegacion {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+.div_column_navegacion.active {
+    max-height: 500px; /* Ajusta según el contenido */
+}
+
+@media screen and (max-width: 650px) {
+    .div_header_navegacion_principal{
+        width: 100%;
+        height: 23rem;
+    }
+    .navegacion_principal {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        position: relative;
+    }
+
+    #navegacion_logo_id{
+        margin-top: 2rem;
+        grid-column-start: 2;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #logo{
+        max-width: 12rem;
+        margin-right: 0rem;
+    }
+    /* Oculta el menú de navegación por defecto */
+    .div_column_navegacion {
+        max-height: 0;
+    }
+
+    /* Muestra el ícono del menú hamburguesa */
+    .menu-icon {
+        display: block;
+        grid-column-start: 1;
+        text-align: center;
+    }
+
+    /* Ajusta el menú desplegable */
+    .div_column_navegacion {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro-primario);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navegacion_p {
+        margin: 1rem 0;
+    }
+
+    #div_iniciar_sesion{
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
+
+    /* Oculta otros elementos si es necesario */
+    .div_column_shopping_cart {
+        grid-column-start: 3;
+    }
+}
 
 
   /* Header */
