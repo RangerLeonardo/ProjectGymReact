@@ -44,7 +44,7 @@ const ItemsList = ( {filter} ) => {
                             <div className='div_details_and_cart'>
                                     <Link to={`/ProjectGymReact/product/detail/${product.id}`} state={ product }>
                                         <div className='div_details'>
-                                            <p className='p_details'>Ver detalle</p>
+                                            <p>Ver detalle</p>
                                         </div>
                                     </Link>
                                 </div>

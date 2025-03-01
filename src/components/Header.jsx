@@ -54,12 +54,12 @@ const Header = ({ onFilterChange }) => {
                         </div>
                         <div className="navegacion_div">
                             <Link onClick={handleFilter("proteina")} className="navegacion_a" to={"/ProjectGymReact/"}>
-                                <p className="navegacion_p" id="sobre_mi">Proteínas</p>
+                                <p className="navegacion_p">Proteínas</p>
                             </Link>
                         </div>
                         <div className="navegacion_div">
                             <Link onClick={handleFilter("creatina")} className="navegacion_a" to={"/ProjectGymReact/"}>
-                                <p className="navegacion_p" id="proyectos">Creatinas</p>
+                                <p className="navegacion_p">Creatinas</p>
                             </Link>
                         </div>
                         <div className="navegacion_div">
@@ -73,13 +73,13 @@ const Header = ({ onFilterChange }) => {
                     <div id="div_iniciar_sesion">
                         {
                             !session ? (
-                                <div>
+                                <div id='div_iniciar_sesion_id'>
                                     <Link onClick={handleLoginClick} to={"/ProjectGymReact/Login"} className="navegacion_p_iniciar_sesion">
                                         Iniciar sesión
                                     </Link>
                                 </div>
                             ) : (
-                                <div>
+                                <div id='div_cerrar_sesion_id'>
                                     <Link onClick={handleLogoutClick} to={location.pathname} className="navegacion_p_iniciar_sesion">
                                         Cerrar sesión
                                     </Link>
