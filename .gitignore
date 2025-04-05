@@ -3,7 +3,4 @@
 .bsb.lock
 /dist
 /dist/
-<<<<<<< HEAD
 /src/firebase.js
-=======
->>>>>>> 4015d2128d15d2e6c5a51609b2137ac6650d4b80
