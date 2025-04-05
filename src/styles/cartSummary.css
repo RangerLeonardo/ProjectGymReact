@@ -1,6 +1,10 @@
 .div_principal_cart_summary{
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 1fr;
+}
+
+.div_cart_summary_items ul{
+    padding: 0;
 }
 
 .div_cart_empty{
@@ -9,16 +13,19 @@
     margin-top: 3rem;
     align-items: center;
     justify-content: center;
+}
 
+.div_item_desc h4{
+    font-weight: 500;
 }
 
 .div_principal_li_cart_summary{
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 20% 45% 30%;
 }
 
 .div_cart_summary_img img{
-    max-width: 15rem;
+    max-width: 20rem;
 }
 
 .li_cart_summary{
@@ -69,5 +76,105 @@
 
 .btn_buy:hover{
     background-color: #218838;
+}
 
+.div_cart_summary_container_items{
+    margin: 1rem;
+}
+
+.div_cart_summary_container_checkout{
+    margin: 0 auto;
+}
+
+.div_detail_container_quantity{
+    margin: 1rem;
+}
+
+.div_cart_summary_img{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 970px) {
+    .div_principal_li_cart_summary{
+        grid-template-columns: 30% 70%;
+        grid-template-rows: minmax(10rem, auto) minmax(10rem, auto);
+        column-gap: 1rem;
+    }
+
+    .div_cart_summary_quantity_control{
+        grid-column-start: 0;
+        grid-column-end: 3;
+        justify-content: end;
+    }
+
+
+}
+
+
+@media screen and (max-width: 720px) {
+    .div_cart_summary_checkout{
+        width: auto;
+    }
+    .div_cart_summary_img{
+        display: flex;
+        justify-content: left;
+        text-align: left;
+        margin-left: -2rem;
+        align-items: center;
+    }
+
+    .div_item_title_desc h4{
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .div_item_price h4{
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .div_principal_li_cart_summary{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .div_cart_summary_quantity_control{
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-content: left;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .div_btn_buy{
+        margin: 4rem auto;
+        width: auto;
+    }
+
+    .div_cart_summary_checkout h3{
+        font-size: 2rem;
+        height: 5rem;
+    }
+
+    .div_cartsummary_address{
+        width: fit-content;
+        word-wrap: break-word;
+
+    }
+
+    .div_btn_buy a{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 248px) {
+
+    .div_btn_buy a{
+        font-size: 1.7rem;
+    }
 }

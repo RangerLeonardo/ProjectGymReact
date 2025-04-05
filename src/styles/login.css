@@ -53,3 +53,21 @@
 .div_login_register_or_recover{
     font-size: 1.5rem;
 }
+
+@media screen and (max-width: 560px) {
+    .div_principal_login{
+        padding: 3rem 6rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .div_principal_login{
+        padding: 2rem 4rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .div_principal_login{
+        padding: 3rem 2rem;
+    }
+}

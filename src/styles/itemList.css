@@ -111,6 +111,10 @@
         gap: 0;
     }
 
+    .div_details_and_cart{
+        width: 100%;
+    }
+
     .div_container_product{
         min-height: 40rem;
     }

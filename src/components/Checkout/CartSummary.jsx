@@ -57,70 +57,79 @@ const CartSummary = () => {
                         <h3>Tus productos</h3>
                     </div>
                     <div className='div_principal_cart_summary'>
-                        <div className='div_cart_summary_items'>
-                            <ul>
-                                {cartShopping.map((item) => (
-                                    <li key={item.id} className='li_cart_summary'>
-                                        <div className='div_principal_li_cart_summary'>
+                        <div className='div_cart_summary_container_items'>
+                            <div className='div_cart_summary_items'>
+                                <ul>
+                                    {cartShopping.map((item) => (
+                                        <li key={item.id} className='li_cart_summary'>
+                                            <div className='div_principal_li_cart_summary'>
 
-                                            <div className='div_cart_summary_img'>
-                                                <img src={item.img} alt={item.desc} />
-                                            </div>
-
-                                            <div>
-
-                                                <div>
-                                                    <h4>{item.name}</h4>
-                                                    <h4>{item.desc}</h4>
+                                                <div className='div_cart_summary_img'>
+                                                    <img src={item.img} alt={item.desc} />
                                                 </div>
 
-                                                <div>
-                                                    <h4>${item.price}.00</h4>
+                                                <div className='div_container_item_title_desc'>
+
+                                                    <div className='div_item_title_desc'>
+                                                        <div className='div_item_title'>
+                                                            <h4>{item.name}</h4>
+                                                        </div>
+                                                        <div className='div_item_desc'>
+                                                            <h4>{item.desc}</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='div_item_price'>
+                                                        <h4>${item.price}.00</h4>
+                                                    </div>
+
+                                                </div>
+                                                <div className='div_cart_summary_quantity_control'>
+                                                    <QuantityControlWithQuantity
+                                                        cantidad={item.quantity}
+                                                        onQuantityChange={(newQuantity) => handleQuantityChange(item.id, newQuantity)}
+                                                        stock={item.stock}
+                                                    />
+                                                    <div className='div_cart_summary_btn_eliminar'>
+                                                        <button onClick={handleDeleteFromCart(item)}>Eliminar</button>
+                                                    </div>
                                                 </div>
 
                                             </div>
-                                            <div className='div_cart_summary_quantity_control'>
-                                                <QuantityControlWithQuantity
-                                                    cantidad={item.quantity}
-                                                    onQuantityChange={(newQuantity) => handleQuantityChange(item.id, newQuantity)}
-                                                    stock={item.stock}
-                                                />
-                                                <div className='div_cart_summary_btn_eliminar'>
-                                                    <button onClick={handleDeleteFromCart(item)}>Eliminar</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
 
-                        <div className='div_cart_summary_checkout'>
-                            <div>
-                                <h3>Total: ${total}.00</h3>
-                            </div>
-                            <div>
-                                <h3>Envío: ¡GRATIS!</h3>
-                            </div>
-                            <div>
-                                <h3>Productos: {quantityFinal}</h3>
-                            </div>
-                            <div>
-                                <h3>Dirección: {user !== null ? `${user.address.street}, ${user.address.colonia}` : 'Dirección no disponible'}</h3>
-                            </div>
+                        <div className='div_cart_summary_container_checkout'>
+                            <div className='div_cart_summary_checkout'>
+                                <div>
+                                    <h3>Total: ${total}.00</h3>
+                                </div>
+                                <div>
+                                    <h3>Envío: ¡GRATIS!</h3>
+                                </div>
+                                <div>
+                                    <h3>Productos: {quantityFinal}</h3>
+                                </div>
+                                <div className='div_cartsummary_address'>
+                                    <h3>Dirección: {user !== null ? `${user.address.street}, ${user.address.colonia}` : 'Dirección no disponible'}</h3>
+                                </div>
 
-                            <div className='div_btn_buy'>
-                                {
-                                    !session ? (
-                                        <Link className='btn_buy' to={"/ProjectGymReact/Login"}>Proceder al pago</Link>
-                                    ) : (
-                                        <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Proceder al pago</Link>
-                                    )
-                                }
+                                <div className='div_btn_buy'>
+                                    {
+                                        !session ? (
+                                            <Link className='btn_buy' to={"/ProjectGymReact/Login"}>Ir a Pagar</Link>
+                                        ) : (
+                                            <Link className='btn_buy' to={"/ProjectGymReact/CartSummary/CartCheckout"}>Ir a Pagar</Link>
+                                        )
+                                    }
 
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             )}
